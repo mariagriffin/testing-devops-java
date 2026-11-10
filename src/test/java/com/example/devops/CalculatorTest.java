@@ -18,7 +18,7 @@ class CalculatorTest {
     }
 
     @Test
-    void throwsOnDivideByZero() {
+    void throwsOnDivideByZero() throws Exception {
         Exception e = assertThrows(IllegalArgumentException.class, () -> calc.divide(4, 0));
         assertEquals("Division by zero", e.getMessage());
     }
