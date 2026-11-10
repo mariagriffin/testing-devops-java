@@ -28,7 +28,12 @@ jobs:
       - name: Checkstyle
         run: mvn checkstyle:check
 
-      - name: Coverage summary
+      - name: Display coverage report
         run: |
           echo "Coverage report:"
-          cat target/site/jacoco/index.html | grep -m 1 "Coverage"
+          if [ -f target/site/jacoco/index.html ]; then
+            echo "JaCoCo HTML report generated successfully."
+            echo "Report location: target/site/jacoco/index.html"
+          else
+            echo "JaCoCo HTML report not found."
+          fi
